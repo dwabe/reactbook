@@ -1,0 +1,25 @@
+{
+  "name": "reactbook",
+  "version": "1.0.0",
+  "description": "exercises from React: Up & Running book by Stoyan Stefanov",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwabe/reactbook.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "bebe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwabe/reactbook/issues"
+  },
+  "homepage": "https://github.com/dwabe/reactbook#readme",
+  "devDependencies": {
+    "react": "^16.8.6"
+  }
+}
