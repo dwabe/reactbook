@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dwabe/reactbook#readme",
   "devDependencies": {
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
