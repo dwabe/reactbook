@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Właściwości komponentu</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="app">
+      <!-- tutaj będzie renderowana moja aplikacja -->
+    </div>
+    <script src="react/build/react.js"></script>
+    <script src="react/build/react-dom.js"></script>
+    <script>
+      var Component = React.createClass({
+        render: function() {
+          return React.DOM.span(null, "Mam na imię " + this.props.name);
+        }
+      });
+      ReactDOM.render(
+        React.createElement(Component, {
+          name: "Jan",
+        }),
+        document.getElementById("app")
+      );
+    </script>
+  </body>
+</html>
