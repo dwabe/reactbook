@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>htmlFor, className</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="app">
+      <!-- tutaj będzie renderowana moja aplikacja -->
+    </div>
+    <script src="react/build/react.js"></script>
+    <script src="react/build/react-dom.js"></script>
+    <script>
+      ReactDOM.render(
+        /*
+        // Antyprzykład
+        // to nie działa
+        React.DOM.h1(
+          {
+            class: "pretty",
+            for: "me",
+          },
+          "Witaj, świecie!"
+        ),
+        */
+        
+        // Poprawny przykład
+        // to działa
+        React.DOM.h1(
+          {
+            className: "pretty",
+            htmlFor: "me",
+          },
+          "Witaj, świecie!"
+        ),        
+        
+        document.getElementById('app')
+      );
+    </script>
+  </body>
+</html>
