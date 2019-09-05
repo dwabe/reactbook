@@ -1,3 +1,4 @@
+/*
 var Component = React.createClass({
   propTypes: {
     firstName: React.PropTypes.string.isRequired,
@@ -23,3 +24,31 @@ ReactDOM.render(
   }),
   document.getElementById("app")
 );
+*/
+
+var TextAreaCounter = React.createClass({
+  propTypes: {
+    text: React.PropTypes.string,
+  },
+  getDefaultProps: function() {
+    return {
+      text: '',
+    };
+  },
+  render: function() {
+    return React.DOM.div(null,
+      React.DOM.textarea({
+        defaultValue: this.props.text,
+      }),
+      React.DOM.h3(null, this.props.text.length)
+    );
+  }
+});
+
+ReactDOM.render(
+  React.createElement(TextAreaCounter, {
+    text: "Dupa",
+  }),
+  document.getElementById("app")
+);
+
