@@ -35,12 +35,23 @@ var TextAreaCounter = React.createClass({
       text: '',
     };
   },
+  getInitialState: function() {
+    return {
+      text: this.props.text,
+    };
+  },
+  _textChange: function (ev) {
+    this.setState({
+      text: ev.target.value,
+    });
+  },
   render: function() {
     return React.DOM.div(null,
       React.DOM.textarea({
-        defaultValue: this.props.text,
+        value: this.state.text,
+        onChange: this._textChange,
       }),
-      React.DOM.h3(null, this.props.text.length)
+      React.DOM.h3(null, this.state.text.length)
     );
   }
 });
