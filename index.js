@@ -25,20 +25,47 @@ ReactDOM.render(
   document.getElementById("app")
 );
 */
+var logMixin = {
+  _log: function(methodName, args) {
+    console.log(this.name + '::' + methodName, args);
+  },
+  componentWillUpdate:  function() {
+    this._log('componentWillUpdate',  arguments);
+  },
+  componentDidUpdate:   function() {
+    this._log('componentDidUpdate',   arguments);
+  },
+  componentWillMount:   function() {
+    this._log('componentWillMount',   arguments);
+  },
+  componentDidMount:    function() {
+    this._log('componentDidMount',    arguments);
+  },
+  componentWillUnmount: function() {
+    this._log('componentWillUnmount', arguments);
+  },
+};
 
 var TextAreaCounter = React.createClass({
+  name: 'TextAreaCounter',
+  mixins: [logMixin],
   propTypes: {
-    text: React.PropTypes.string,
+    defaultValue: React.PropTypes.string,
   },
-  getDefaultProps: function() {
+  /*getDefaultProps: function() {
     return {
       text: '',
     };
-  },
+  },*/
   getInitialState: function() {
     return {
-      text: this.props.text,
+      text: this.props.defaultValue,
     };
+  },
+  componentWillReceiveProps: function(newProps) {
+    this.setState({
+      text: newProps.defaultValue,
+    });
   },
   _textChange: function (ev) {
     this.setState({
@@ -56,10 +83,16 @@ var TextAreaCounter = React.createClass({
   }
 });
 
-ReactDOM.render(
+var myTextAreaCounter = ReactDOM.render(
   React.createElement(TextAreaCounter, {
-    text: "Dupa",
+    defaultValue: "Jan",
   }),
   document.getElementById("app")
 );
 
+myTextAreaCounter = ReactDOM.render(
+  React.createElement(TextAreaCounter, {
+    defaultValue: "Witaj",
+  }),
+  document.getElementById("app")
+);
